@@ -10,34 +10,36 @@ class Filter extends Component {
 
   render () {
     return (
-      <section className="filter">
+      <section id="filter">
+      <div className="inside">
         <h4>Filter</h4>
 
-        <select name="city/town" className="city/town">
+        <select name="city/town" className="filters city/town">
           <option>Brookline</option>
         </select>
-        <select name="property-type" className="property-type">
+        <select name="property-type" className="filters property-type">
           <option>Mansion</option>
         </select>
-        <select name="number-of-bedrooms" className="number-of-bedrooms">
+        <select name="number-of-bedrooms" className="filters number-of-bedrooms">
           <option>11 BR</option>
         </select>
-        <select name="number-of-bathrooms" className="number-of-bathrooms">
+        <select name="number-of-bathrooms" className="filters number-of-bathrooms">
           <option>8 BA</option>
         </select>
 
-        <div className="filter floor-space">
+        <div className="filters floor-space">
           <span className="title">Floor Space</span>
           <input type="text" name="min-floor-space" className="min-floor-space"/>
           <input type="text" name="max-floor-space" className="max-floor-space"/>
         </div>
-        <div className="filter price">
+        <div className="filters price">
           <span className="title">Price</span>
           <input type="text" name="min-price" className="min-price"/>
           <input type="text" name="max-price" className="max-price"/>
         </div>
 
-        <div className="filter extras">
+        <div className="filters extras">
+          <span className="title">Extras</span>
           <label for="extras">
             <span>Elevator</span>
             <input name="extras" value="elevator" type="checkbox" />
@@ -51,6 +53,7 @@ class Filter extends Component {
             <input name="extras" value="finished-basedment" type="checkbox" />
           </label>
         </div>
+      </div>
       </section>
     )
   }

@@ -1,0 +1,56 @@
+#filter {
+  background: $grey;
+  width: 30%;
+
+  .inside{
+    padding: 20px;
+    max-width: 300px;
+  }
+
+  h4 {
+    font-size: .9rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  select {
+    background: transparent;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1b1b1b;
+    display: block;
+    margin-bottom: 25px;
+    width: 100%;
+  }
+
+  .filters{
+
+    .title {
+      font-size: .9rem;
+      display: block;
+      margin-bottom: 1rem;
+      color: $darkgrey;
+    }
+
+    input[type="text"] {
+      border-radius: 5px;
+      font-size: 1rem;
+      padding: .4rem;
+      width: 45%;
+      display: inline-block;
+      margin-right: 2.5%;
+      margin-bottom: 1rem;
+    }
+
+    &.extras {
+
+      label {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+      }
+    }
+  }
+}
