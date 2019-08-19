@@ -1,0 +1,35 @@
+@import "variables";
+
+header {
+  background: #0c002b;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 15px;
+
+  .logo {
+    padding-left: 5px;
+  }
+
+  nav {
+
+    a {
+      text-decoration: none;
+      padding: 7px 20px;
+      color: white;
+      font-weight: 300;
+      font-size: .9rem;
+      &:hover {
+        color: #ff718e;
+      }
+
+      &.register-btn {
+        background: $pink;
+        padding: 10px 20px;
+        text-align: center;
+        color: white;
+        border-radius: 7px;
+      }
+    }
+  }
+}
