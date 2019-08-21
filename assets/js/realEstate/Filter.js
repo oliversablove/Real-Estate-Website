@@ -14,8 +14,11 @@ class Filter extends Component {
       <div className="inside">
         <h4>Filter</h4>
 
-        <select name="city/town" className="filters city/town">
-          <option>Brookline</option>
+        <select name="city/town" className="filters city/town" onChange={this.props.change}>
+          <option value="Brookline">Brookline</option>
+          <option value="Amherst">Amherst</option>
+          <option value="Dorchester">Dorchester</option>
+          <option value="Roslindale">Roslindale</option>
         </select>
         <select name="property-type" className="filters property-type">
           <option>Mansion</option>
@@ -40,15 +43,15 @@ class Filter extends Component {
 
         <div className="filters extras">
           <span className="title">Extras</span>
-          <label for="extras">
+          <label htmlFor="extras">
             <span>Elevator</span>
             <input name="extras" value="elevator" type="checkbox" />
           </label>
-          <label for="extras">
+          <label htmlFor="extras">
             <span>Swimming Pool</span>
             <input name="extras" value="swimming-pool" type="checkbox" />
           </label>
-          <label for="extras">
+          <label htmlFor="extras">
             <span>Finished Basement</span>
             <input name="extras" value="finished-basedment" type="checkbox" />
           </label>
