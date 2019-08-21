@@ -17,7 +17,7 @@ class Listings extends Component {
         </section>
 
         <section className="sortby-area">
-          <div>300 results found</div>
+          <div className="results">300 results found</div>
           <div className="sort-options">
             <select name="sortby" className="sortby">
               <option value="price asc">Highest Price</option>
@@ -31,36 +31,44 @@ class Listings extends Component {
         </section>
 
         <section className="listings-results">
-
           <div className="listing">
             <div className="listing-img">
-              <span className="Address">Address</span>
+              <span className="address">18 Greylock Rd</span>
               <div className="details">
-                <div className="user-img"></div>
-                <div className="user-details">
-                  <span className="user-name">Lucci Kinder</span>
-                  <span className="post-date">08/19/19</span>
+                <div className="col-md-3">
+                  <div className="user-img"> </div>
                 </div>
-                <div className="listing-details">
-                  <div className="floor-space">
-                    <i className="fa fa-square-o" aria-hideen="true"></i>
-                    <span>1000 ft&sup2;</span>
+
+                <div className="col-md-9">
+                  <div className="user-details">
+                    <span className="user-name">Lucci Kinder</span>
+                    <span className="post-date">08/21/19</span>
                   </div>
-                  <div className="bedrooms">
-                    <i className="fa fa-bed" aria-hidden="true"></i>
-                    <span>3 bedrooms</span>
+                  <div className="listing-details">
+                    <div className="floor-space">
+                      <i className="fa fa-square-o" aria-hidden="true"></i>
+                      <span>1000 ft&sup2;</span>
+                    </div>
+                    <div className="bedrooms">
+                      <i className="fa fa-bed" aria-hidden="true"></i>
+                      <span>3 Bedrooms</span>
+                    </div>
+                  </div>
+
+                  <div className="view-btn">
+                  View Listing
                   </div>
                 </div>
-              </div>
-              <div className="bottom-info">
-                <span>$1000/month </span>
-                <span>
-                <i className="fa fa-map-marker" aria-hidden="true"></i>
-                100 Gucci Mang Way, GV
-                </span>
+
               </div>
             </div>
+            <div className="bottom-info">
+              <span>$1000 / month</span>
+              <span><i className="fa fa-map-marker" aria-hidden="true"></i>Brookline, MA</span>
+            </div>
+
           </div>
+
         </section>
 
         <section className="pagination">
