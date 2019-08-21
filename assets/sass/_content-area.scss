@@ -271,6 +271,28 @@
   }
 }
 
+#pagination {
+  text-align: center;
+
+  .pages {
+    display: inline-block;
+    background: white;
+    box-shadow: 0 9px 54px 4px rgba(244, 244, 244, 1);
+
+    li {
+      padding: 20px 30px;
+      display: inline-block;
+
+      &:hover, &.active {
+        color: white;
+        font-weight: 700;
+        background: $pink;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 .col-md-3 {
   width: 25%;
   display: inline-block;
