@@ -3,7 +3,7 @@ const listingsData = [
     address: '18 Greylock Road',
     city: 'Brookline',
     state: 'MA',
-    propertyType: 'mansion',
+    propertyType: 'bando',
     bedrooms: 10,
     bathrooms: 8,
     price: 8000000,
