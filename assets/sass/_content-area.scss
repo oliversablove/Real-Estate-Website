@@ -4,7 +4,7 @@
 }
 
 #filter {
-  background: $grey;
+  background: rgba(250, 247, 245, .6);
   width: 30%;
   display: inline-block;
   float: left;
@@ -114,6 +114,9 @@
         .fa {
           margin-right: 15px;
           font-size: 1.5rem;
+          &:hover {
+            color: $pink;
+          }
         }
       }
     }

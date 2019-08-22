@@ -123,8 +123,8 @@ class Listings extends Component {
               <option value="price-asc">Highest Price</option>
             </select>
             <div className="view">
-              <i className="fa fa-th-list" aria-hidden="true" onClick={this.props.changeView.bind(null, "box")}></i>
-              <i className="fa fa-th" aria-hidden="true" onClick={this.props.changeView.bind(null, "long-box")}></i>
+              <i className="fa fa-th-list" aria-hidden="true" onClick={this.props.changeView.bind(null, "long-box")}></i>
+              <i className="fa fa-th" aria-hidden="true" onClick={this.props.changeView.bind(null, "box")}></i>
             </div>
           </div>
         </section>
