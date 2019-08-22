@@ -396,7 +396,7 @@ var Listings = function (_Component) {
             { className: 'listing' },
             _react2.default.createElement(
               'div',
-              { className: 'listing-img', style: { background: 'url("' + listing.image + '") no-repeat center' } },
+              { className: 'listing-img', style: { background: 'url("' + listing.image + '") no-repeat center center' } },
               _react2.default.createElement(
                 'span',
                 { className: 'address' },

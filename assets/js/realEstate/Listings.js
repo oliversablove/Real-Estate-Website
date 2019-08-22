@@ -21,7 +21,7 @@ class Listings extends Component {
       return (
         <div className="col-md-3" key={index}>
           <div className="listing">
-            <div className="listing-img" style={{background: `url("${listing.image}") no-repeat center`}}>
+             <div className="listing-img" style={{background: `url("${listing.image}") no-repeat center center`}}>
               <span className="address">{listing.address}</span>
               <div className="details">
                 <div className="col-md-3">

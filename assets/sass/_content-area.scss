@@ -133,11 +133,12 @@
       color: white;
       padding: 15px;
       // background: url("https://images.adsttc.com/media/images/53d8/5c86/c07a/8059/5e00/0267/large_jpg/PORTADA.jpg?1406688379")
-      // no-repeat center center;
+      // no-repeat center center!important;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -moz-background-size: cover;
-      background-size: cover;
+      background-size: cover!important;
+      background-position: 50% 50%;
       min-height: 200px;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
@@ -166,6 +167,8 @@
         transition: all .5s ease-in-out;
         opacity: 0;
         padding: 30px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
         position: absolute;
         top: 0;
         left: 0;
