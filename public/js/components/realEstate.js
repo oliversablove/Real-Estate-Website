@@ -597,7 +597,8 @@ var Listings = function (_Component) {
         _react2.default.createElement(
           'section',
           { className: 'search-area' },
-          _react2.default.createElement('input', { type: 'text', name: 'search', onChange: this.props.change })
+          _react2.default.createElement('input', { type: 'text', name: 'search', onChange: this.props.change }),
+          _react2.default.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' })
         ),
         _react2.default.createElement(
           'section',

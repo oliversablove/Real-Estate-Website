@@ -113,6 +113,7 @@ class Listings extends Component {
 
         <section className="search-area">
           <input type="text" name="search" onChange={this.props.change}/>
+          <i className="fa fa-search" aria-hidden="true"></i>
         </section>
 
         <section className="sortby-area">
