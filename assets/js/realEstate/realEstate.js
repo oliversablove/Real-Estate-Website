@@ -37,7 +37,6 @@ class App extends Component {
     this.setState({
       [name]: value
     }, () => {
-      console.log(this.state)
       this.filteredData()
     })
   }
@@ -62,8 +61,28 @@ class App extends Component {
       })
     }
 
+    if (this.state.elevator === true) {
+      newData = newData.filter((listing) => {
+        return listing.extras.elevator === this.state.elevator
+      })
+    }
+
+    if (this.state.swimming_pool === true) {
+      newData = newData.filter((listing) => {
+        return listing.extras.swimming_pool === this.state.swimming_pool
+      })
+    }
+
+    if (this.state.finished_basement === true) {
+      newData = newData.filter((listing) => {
+        return listing.extras.finished_basement === this.state.finished_basement
+      })
+    }
+
     this.setState({
       filteredData: newData
+    }, () => {
+      console.log(this.state.elevator)
     })
   }
 
@@ -104,8 +123,6 @@ class App extends Component {
         bedrooms,
         bathrooms
       }
-    }, () => {
-      console.log(this.state)
     })
   }
 

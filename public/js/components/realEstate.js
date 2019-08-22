@@ -607,7 +607,16 @@ var listingsData = [{
   bathrooms: 1,
   price: 8000000,
   floorSpace: 10000,
-  extras: ['elevator', 'swimming pool', 'finished basement'],
+  // extras: [
+  //   'elevator',
+  //   'swimming pool',
+  //   'finished basement'
+  // ],
+  extras: {
+    elevator: true,
+    swimming_pool: true,
+    finished_basement: true
+  },
   image: 'https://images.adsttc.com/media/images/53d8/5c86/c07a/8059/5e00/0267/large_jpg/PORTADA.jpg?1406688379'
 }, {
   address: '658 Washington Street',
@@ -618,7 +627,15 @@ var listingsData = [{
   bathrooms: 8,
   price: 4500000,
   floorSpace: 8000,
-  extras: ['elevator', 'swimming pool', 'finished basement'],
+  // extras: [
+  //   'swimming pool',
+  //   'finished basement'
+  // ],
+  extras: {
+    elevator: false,
+    swimming_pool: false,
+    finished_basement: true
+  },
   image: 'https://patch.com/img/cdn20/users/22926785/20190715/051807/styles/patch_image/public/processed_images/97f367dd52513a01fe128cfcafe01ba2l-m0o.jpg'
 }, {
   address: '7 Westbourne Street',
@@ -629,7 +646,15 @@ var listingsData = [{
   bathrooms: 8,
   price: 3250000,
   floorSpace: 6000,
-  extras: ['elevator', 'swimming pool', 'finished basement'],
+  // extras: [
+  //   'swimming pool',
+  //   'finished basement'
+  // ],
+  extras: {
+    elevator: false,
+    swimming_pool: true,
+    finished_basement: true
+  },
   image: 'https://i.pinimg.com/originals/c2/54/1c/c2541c4354d17b791411753af1a8b959.jpg'
 }, {
   address: '496 North Pleasant Street',
@@ -640,7 +665,15 @@ var listingsData = [{
   bathrooms: 3,
   price: 875000,
   floorSpace: 3000,
-  extras: ['elevator', 'swimming pool', 'finished basement'],
+  // extras: [
+  //   'swimming pool',
+  //   'finished basement'
+  // ],
+  extras: {
+    elevator: false,
+    swimming_pool: true,
+    finished_basement: true
+  },
   image: 'https://i.pinimg.com/originals/f8/e9/bd/f8e9bd96b564f63e47730ac0f249fa8c.jpg'
 }, {
   address: '51 Mason Terrace',
@@ -651,7 +684,16 @@ var listingsData = [{
   bathrooms: 4,
   price: 6450000,
   floorSpace: 9000,
-  extras: ['elevator', 'swimming pool', 'finished basement'],
+  // extras: [
+  //   'elevator',
+  //   'swimming pool',
+  //   'finished basement'
+  // ],
+  extras: {
+    elevator: true,
+    swimming_pool: true,
+    finished_basement: true
+  },
   image: 'https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fkarenhua%2Ffiles%2F2017%2F02%2Fbrady-la2.jpg'
 }, {
   address: 'SNC Way',
@@ -662,10 +704,19 @@ var listingsData = [{
   bathrooms: 9,
   price: 545000,
   floorSpace: 2000,
-  extras: ['elevator', 'swimming pool', 'finished basement'],
+  // extras: [
+  //   'elevator',
+  //   'swimming pool',
+  //   'finished basement'
+  // ],
+  extras: {
+    elevator: true,
+    swimming_pool: true,
+    finished_basement: true
+  },
   image: 'https://cdn.vox-cdn.com/uploads/chorus_image/image/64983743/Giselle_House_1.0.jpg'
 }, {
-  address: '18 Greylock Road',
+  address: '18 Warren Street',
   city: 'Brookline',
   state: 'MA',
   propertyType: 'mansion',
@@ -673,7 +724,14 @@ var listingsData = [{
   bathrooms: 2,
   price: 1000000,
   floorSpace: 12000,
-  extras: ['elevator', 'swimming pool', 'finished basement'],
+  // extras: [
+  //   'swimming pool'
+  // ],
+  extras: {
+    elevator: false,
+    swimming_pool: true,
+    finished_basement: false
+  },
   image: 'https://i.pinimg.com/originals/66/2d/5a/662d5a7247e528b2e7b12788bc5a9cf7.jpg'
 }];
 
@@ -765,7 +823,6 @@ var App = function (_Component) {
       var value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
 
       this.setState(_defineProperty({}, name, value), function () {
-        console.log(_this2.state);
         _this2.filteredData();
       });
     }
@@ -790,15 +847,33 @@ var App = function (_Component) {
         });
       }
 
+      if (this.state.elevator === true) {
+        newData = newData.filter(function (listing) {
+          return listing.extras.elevator === _this3.state.elevator;
+        });
+      }
+
+      if (this.state.swimming_pool === true) {
+        newData = newData.filter(function (listing) {
+          return listing.extras.swimming_pool === _this3.state.swimming_pool;
+        });
+      }
+
+      if (this.state.finished_basement === true) {
+        newData = newData.filter(function (listing) {
+          return listing.extras.finished_basement === _this3.state.finished_basement;
+        });
+      }
+
       this.setState({
         filteredData: newData
+      }, function () {
+        console.log(_this3.state.elevator);
       });
     }
   }, {
     key: 'populateForms',
     value: function populateForms() {
-      var _this4 = this;
-
       // city
       var cities = this.state.listingsData.map(function (listing) {
         return listing.city;
@@ -835,8 +910,6 @@ var App = function (_Component) {
           bedrooms: bedrooms,
           bathrooms: bathrooms
         }
-      }, function () {
-        console.log(_this4.state);
       });
     }
   }, {
