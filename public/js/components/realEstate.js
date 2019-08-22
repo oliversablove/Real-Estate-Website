@@ -510,16 +510,16 @@ var Listings = function (_Component) {
             { className: 'sort-options' },
             _react2.default.createElement(
               'select',
-              { name: 'sortby', className: 'sortby' },
+              { name: 'sortby', className: 'sortby', onChange: this.props.change },
               _react2.default.createElement(
                 'option',
-                { value: 'price asc' },
-                'Highest Price'
+                { value: 'price-dsc' },
+                'Lowest Price'
               ),
               _react2.default.createElement(
                 'option',
-                { value: 'price dsc' },
-                'Lowest Price'
+                { value: 'price-asc' },
+                'Highest Price'
               )
             ),
             _react2.default.createElement(
@@ -806,7 +806,8 @@ var App = function (_Component) {
       swimming_pool: false,
       finished_basement: false,
       filteredData: _listingsData2.default,
-      populateFormsData: []
+      populateFormsData: [],
+      sortby: 'price-dsc'
     };
     _this.change = _this.change.bind(_this);
     _this.filteredData = _this.filteredData.bind(_this);
@@ -856,6 +857,12 @@ var App = function (_Component) {
       if (this.state.propertyType != "All") {
         newData = newData.filter(function (listing) {
           return listing.propertyType === _this3.state.propertyType;
+        });
+      }
+
+      if (this.state.sortby != "price-dsc") {
+        newData = newData.sort(function (a, b) {
+          return b.price - a.price;
         });
       }
 
@@ -943,7 +950,7 @@ var App = function (_Component) {
           'section',
           { id: 'content-area' },
           _react2.default.createElement(_Filter2.default, { change: this.change, globalState: this.state, populateAction: this.populateForms }),
-          _react2.default.createElement(_Listings2.default, { listingsData: this.state.filteredData })
+          _react2.default.createElement(_Listings2.default, { change: this.change, listingsData: this.state.filteredData })
         )
       );
     }

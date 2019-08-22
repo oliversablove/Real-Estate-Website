@@ -23,7 +23,8 @@ class App extends Component {
       swimming_pool: false,
       finished_basement: false,
       filteredData: listingsData,
-      populateFormsData: []
+      populateFormsData: [],
+      sortby: 'price-dsc'
     }
     this.change = this.change.bind(this)
     this.filteredData = this.filteredData.bind(this)
@@ -69,6 +70,12 @@ class App extends Component {
     if (this.state.propertyType != "All") {
       newData = newData.filter((listing) => {
         return listing.propertyType === this.state.propertyType
+      })
+    }
+
+    if (this.state.sortby != "price-dsc") {
+      newData = newData.sort((a, b) => {
+        return b.price - a.price
       })
     }
 
@@ -151,7 +158,7 @@ class App extends Component {
         <Header />
         <section id="content-area">
           <Filter change={this.change} globalState={this.state} populateAction={this.populateForms}/>
-          <Listings listingsData={this.state.filteredData} />
+          <Listings change={this.change} listingsData={this.state.filteredData} />
         </section>
       </div>
     )
