@@ -22,10 +22,12 @@ class App extends Component {
       elevator: false,
       swimming_pool: false,
       finished_basement: false,
-      filteredData: listingsData
+      filteredData: listingsData,
+      populateFormsData: []
     }
     this.change = this.change.bind(this)
     this.filteredData = this.filteredData.bind(this)
+    this.populateForms = this.populateForms.bind(this)
   }
 
   change(event) {
@@ -65,12 +67,54 @@ class App extends Component {
     })
   }
 
+  populateForms() {
+    // city
+    let cities = this.state.listingsData.map((listing) => {
+      return listing.city
+    })
+
+    cities = new Set(cities)
+    cities = [...cities]
+    // property type
+    let propertyTypes = this.state.listingsData.map((listing) => {
+      return listing.propertyType
+    })
+
+    propertyTypes = new Set(propertyTypes)
+    propertyTypes = [...propertyTypes]
+    // bedrooms
+    let bedrooms = this.state.listingsData.map((listing) => {
+      return listing.bedrooms
+    })
+
+    bedrooms = new Set(bedrooms)
+    bedrooms = [...bedrooms]
+    // bathrooms
+    let bathrooms = this.state.listingsData.map((listing) => {
+      return listing.bathrooms
+    })
+
+    bathrooms = new Set(bathrooms)
+    bathrooms = [...bathrooms]
+
+    this.setState({
+      populateFormsData: {
+        cities,
+        propertyTypes,
+        bedrooms,
+        bathrooms
+      }
+    }, () => {
+      console.log(this.state)
+    })
+  }
+
   render () {
     return (
       <div>
         <Header />
         <section id="content-area">
-          <Filter change={this.change} globalState={this.state}/>
+          <Filter change={this.change} globalState={this.state} populateAction={this.populateForms}/>
           <Listings listingsData={this.state.filteredData}/>
         </section>
       </div>

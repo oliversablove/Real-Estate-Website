@@ -35,10 +35,85 @@ var Filter = function (_Component) {
     _this.state = {
       name: 'Joe'
     };
+    _this.cities = _this.cities.bind(_this);
+    _this.propertyTypes = _this.propertyTypes.bind(_this);
+    _this.bedrooms = _this.bedrooms.bind(_this);
+    _this.bathrooms = _this.bathrooms.bind(_this);
     return _this;
   }
 
   _createClass(Filter, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.props.populateAction();
+    }
+  }, {
+    key: 'cities',
+    value: function cities() {
+      if (this.props.globalState.populateFormsData.cities != undefined) {
+        var cities = this.props.globalState.populateFormsData.cities;
+
+
+        return cities.map(function (listing) {
+          return _react2.default.createElement(
+            'option',
+            { key: listing, value: listing },
+            listing
+          );
+        });
+      }
+    }
+  }, {
+    key: 'propertyTypes',
+    value: function propertyTypes() {
+      if (this.props.globalState.populateFormsData.propertyTypes != undefined) {
+        var propertyTypes = this.props.globalState.populateFormsData.propertyTypes;
+
+
+        return propertyTypes.map(function (listing) {
+          return _react2.default.createElement(
+            'option',
+            { key: listing, value: listing },
+            listing
+          );
+        });
+      }
+    }
+  }, {
+    key: 'bedrooms',
+    value: function bedrooms() {
+      if (this.props.globalState.populateFormsData.bedrooms != undefined) {
+        var bedrooms = this.props.globalState.populateFormsData.bedrooms;
+
+
+        return bedrooms.map(function (listing) {
+          return _react2.default.createElement(
+            'option',
+            { key: listing, value: listing },
+            listing,
+            '+ BR'
+          );
+        });
+      }
+    }
+  }, {
+    key: 'bathrooms',
+    value: function bathrooms() {
+      if (this.props.globalState.populateFormsData.bathrooms != undefined) {
+        var bathrooms = this.props.globalState.populateFormsData.bathrooms;
+
+
+        return bathrooms.map(function (listing) {
+          return _react2.default.createElement(
+            'option',
+            { key: listing, value: listing },
+            listing,
+            '+ BA'
+          );
+        });
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -65,26 +140,7 @@ var Filter = function (_Component) {
               { value: 'All' },
               'All'
             ),
-            _react2.default.createElement(
-              'option',
-              { value: 'Brookline' },
-              'Brookline'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: 'Amherst' },
-              'Amherst'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: 'Dorchester' },
-              'Dorchester'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: 'Roslindale' },
-              'Roslindale'
-            )
+            this.cities()
           ),
           _react2.default.createElement(
             'label',
@@ -99,31 +155,7 @@ var Filter = function (_Component) {
               { value: 'All' },
               'All'
             ),
-            _react2.default.createElement(
-              'option',
-              { value: 'mansion' },
-              'Mansion'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: 'house' },
-              'House'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: 'apartment' },
-              'Apartment'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: 'condo' },
-              'Condo'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: 'bando' },
-              'Bando'
-            )
+            this.propertyTypes()
           ),
           _react2.default.createElement(
             'label',
@@ -133,36 +165,7 @@ var Filter = function (_Component) {
           _react2.default.createElement(
             'select',
             { name: 'bedrooms', className: 'filters number-of-bedrooms', onChange: this.props.change },
-            _react2.default.createElement(
-              'option',
-              { value: '1' },
-              '1+ BR'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '2' },
-              '2+ BR'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '3' },
-              '3+ BR'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '4' },
-              '4+ BR'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '5' },
-              '5+ BR'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '6' },
-              '6+ BR'
-            )
+            this.bedrooms()
           ),
           _react2.default.createElement(
             'label',
@@ -172,36 +175,7 @@ var Filter = function (_Component) {
           _react2.default.createElement(
             'select',
             { name: 'bathrooms', className: 'filters number-of-bathrooms', onChange: this.props.change },
-            _react2.default.createElement(
-              'option',
-              { value: '1' },
-              '1+ BA'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '2' },
-              '2+ BA'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '3' },
-              '3+ BA'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '4' },
-              '4+ BA'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '5' },
-              '5+ BA'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '6+' },
-              '6+ BA'
-            )
+            this.bathrooms()
           ),
           _react2.default.createElement(
             'div',
@@ -741,6 +715,8 @@ var _listingsData2 = _interopRequireDefault(_listingsData);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -771,10 +747,12 @@ var App = function (_Component) {
       elevator: false,
       swimming_pool: false,
       finished_basement: false,
-      filteredData: _listingsData2.default
+      filteredData: _listingsData2.default,
+      populateFormsData: []
     };
     _this.change = _this.change.bind(_this);
     _this.filteredData = _this.filteredData.bind(_this);
+    _this.populateForms = _this.populateForms.bind(_this);
     return _this;
   }
 
@@ -817,6 +795,51 @@ var App = function (_Component) {
       });
     }
   }, {
+    key: 'populateForms',
+    value: function populateForms() {
+      var _this4 = this;
+
+      // city
+      var cities = this.state.listingsData.map(function (listing) {
+        return listing.city;
+      });
+
+      cities = new Set(cities);
+      cities = [].concat(_toConsumableArray(cities));
+      // property type
+      var propertyTypes = this.state.listingsData.map(function (listing) {
+        return listing.propertyType;
+      });
+
+      propertyTypes = new Set(propertyTypes);
+      propertyTypes = [].concat(_toConsumableArray(propertyTypes));
+      // bedrooms
+      var bedrooms = this.state.listingsData.map(function (listing) {
+        return listing.bedrooms;
+      });
+
+      bedrooms = new Set(bedrooms);
+      bedrooms = [].concat(_toConsumableArray(bedrooms));
+      // bathrooms
+      var bathrooms = this.state.listingsData.map(function (listing) {
+        return listing.bathrooms;
+      });
+
+      bathrooms = new Set(bathrooms);
+      bathrooms = [].concat(_toConsumableArray(bathrooms));
+
+      this.setState({
+        populateFormsData: {
+          cities: cities,
+          propertyTypes: propertyTypes,
+          bedrooms: bedrooms,
+          bathrooms: bathrooms
+        }
+      }, function () {
+        console.log(_this4.state);
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -826,7 +849,7 @@ var App = function (_Component) {
         _react2.default.createElement(
           'section',
           { id: 'content-area' },
-          _react2.default.createElement(_Filter2.default, { change: this.change, globalState: this.state }),
+          _react2.default.createElement(_Filter2.default, { change: this.change, globalState: this.state, populateAction: this.populateForms }),
           _react2.default.createElement(_Listings2.default, { listingsData: this.state.filteredData })
         )
       );
