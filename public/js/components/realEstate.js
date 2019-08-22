@@ -602,7 +602,7 @@ var listingsData = [{
   address: '18 Greylock Road',
   city: 'Brookline',
   state: 'MA',
-  propertyType: 'bando',
+  propertyType: 'Bando',
   bedrooms: 3,
   bathrooms: 1,
   price: 8000000,
@@ -622,8 +622,8 @@ var listingsData = [{
   address: '658 Washington Street',
   city: 'Brookline',
   state: 'MA',
-  propertyType: 'mansion',
-  bedrooms: 10,
+  propertyType: 'Mansion',
+  bedrooms: 8,
   bathrooms: 8,
   price: 4500000,
   floorSpace: 8000,
@@ -641,8 +641,8 @@ var listingsData = [{
   address: '7 Westbourne Street',
   city: 'Roslindale',
   state: 'MA',
-  propertyType: 'mansion',
-  bedrooms: 10,
+  propertyType: 'Mansion',
+  bedrooms: 6,
   bathrooms: 8,
   price: 3250000,
   floorSpace: 6000,
@@ -660,7 +660,7 @@ var listingsData = [{
   address: '496 North Pleasant Street',
   city: 'Amherst',
   state: 'MA',
-  propertyType: 'mansion',
+  propertyType: 'Mansion',
   bedrooms: 2,
   bathrooms: 3,
   price: 875000,
@@ -679,7 +679,7 @@ var listingsData = [{
   address: '51 Mason Terrace',
   city: 'Brookline',
   state: 'MA',
-  propertyType: 'mansion',
+  propertyType: 'Mansion',
   bedrooms: 1,
   bathrooms: 4,
   price: 6450000,
@@ -699,7 +699,7 @@ var listingsData = [{
   address: 'SNC Way',
   city: 'Dorchester',
   state: 'MA',
-  propertyType: 'mansion',
+  propertyType: 'Mansion',
   bedrooms: 9,
   bathrooms: 9,
   price: 545000,
@@ -719,8 +719,8 @@ var listingsData = [{
   address: '18 Warren Street',
   city: 'Brookline',
   state: 'MA',
-  propertyType: 'mansion',
-  bedrooms: 11,
+  propertyType: 'Mansion',
+  bedrooms: 7,
   bathrooms: 2,
   price: 1000000,
   floorSpace: 12000,
@@ -815,6 +815,18 @@ var App = function (_Component) {
   }
 
   _createClass(App, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      // Default sort from lowest price to highest price
+      var listingsData = this.state.listingsData.sort(function (a, b) {
+        return a.price - b.price;
+      });
+
+      this.setState({
+        listingsData: listingsData
+      });
+    }
+  }, {
     key: 'change',
     value: function change(event) {
       var _this2 = this;
@@ -881,6 +893,8 @@ var App = function (_Component) {
 
       cities = new Set(cities);
       cities = [].concat(_toConsumableArray(cities));
+
+      cities = cities.sort();
       // property type
       var propertyTypes = this.state.listingsData.map(function (listing) {
         return listing.propertyType;
@@ -888,6 +902,8 @@ var App = function (_Component) {
 
       propertyTypes = new Set(propertyTypes);
       propertyTypes = [].concat(_toConsumableArray(propertyTypes));
+
+      propertyTypes = propertyTypes.sort();
       // bedrooms
       var bedrooms = this.state.listingsData.map(function (listing) {
         return listing.bedrooms;
@@ -895,6 +911,8 @@ var App = function (_Component) {
 
       bedrooms = new Set(bedrooms);
       bedrooms = [].concat(_toConsumableArray(bedrooms));
+
+      bedrooms = bedrooms.sort();
       // bathrooms
       var bathrooms = this.state.listingsData.map(function (listing) {
         return listing.bathrooms;
@@ -902,6 +920,8 @@ var App = function (_Component) {
 
       bathrooms = new Set(bathrooms);
       bathrooms = [].concat(_toConsumableArray(bathrooms));
+
+      bathrooms = bathrooms.sort();
 
       this.setState({
         populateFormsData: {

@@ -30,6 +30,17 @@ class App extends Component {
     this.populateForms = this.populateForms.bind(this)
   }
 
+  componentWillMount() {
+    // Default sort from lowest price to highest price
+    const listingsData = this.state.listingsData.sort((a, b) => {
+      return a.price - b.price
+    })
+
+    this.setState({
+      listingsData
+    })
+  }
+
   change(event) {
     const name = event.target.name
     const value = (event.target.type === 'checkbox') ? event.target.checked : event.target.value
@@ -94,6 +105,8 @@ class App extends Component {
 
     cities = new Set(cities)
     cities = [...cities]
+
+    cities = cities.sort()
     // property type
     let propertyTypes = this.state.listingsData.map((listing) => {
       return listing.propertyType
@@ -101,6 +114,8 @@ class App extends Component {
 
     propertyTypes = new Set(propertyTypes)
     propertyTypes = [...propertyTypes]
+
+    propertyTypes = propertyTypes.sort()
     // bedrooms
     let bedrooms = this.state.listingsData.map((listing) => {
       return listing.bedrooms
@@ -108,6 +123,8 @@ class App extends Component {
 
     bedrooms = new Set(bedrooms)
     bedrooms = [...bedrooms]
+
+    bedrooms = bedrooms.sort()
     // bathrooms
     let bathrooms = this.state.listingsData.map((listing) => {
       return listing.bathrooms
@@ -115,6 +132,8 @@ class App extends Component {
 
     bathrooms = new Set(bathrooms)
     bathrooms = [...bathrooms]
+
+    bathrooms = bathrooms.sort()
 
     this.setState({
       populateFormsData: {
@@ -132,7 +151,7 @@ class App extends Component {
         <Header />
         <section id="content-area">
           <Filter change={this.change} globalState={this.state} populateAction={this.populateForms}/>
-          <Listings listingsData={this.state.filteredData}/>
+          <Listings listingsData={this.state.filteredData} />
         </section>
       </div>
     )
