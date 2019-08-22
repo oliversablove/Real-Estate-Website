@@ -53,8 +53,18 @@ var Filter = function (_Component) {
             'Filter'
           ),
           _react2.default.createElement(
+            'label',
+            { htmlFor: 'city' },
+            'City'
+          ),
+          _react2.default.createElement(
             'select',
-            { name: 'city/town', className: 'filters city/town', onChange: this.props.change },
+            { name: 'city', className: 'filters city', onChange: this.props.change },
+            _react2.default.createElement(
+              'option',
+              { value: 'All' },
+              'All'
+            ),
             _react2.default.createElement(
               'option',
               { value: 'Brookline' },
@@ -77,95 +87,115 @@ var Filter = function (_Component) {
             )
           ),
           _react2.default.createElement(
+            'label',
+            { htmlFor: 'propertyType' },
+            'Type of Property'
+          ),
+          _react2.default.createElement(
             'select',
-            { name: 'property-type', className: 'filters property-type', onChange: this.props.change },
+            { name: 'propertyType', className: 'filters property-type', onChange: this.props.change },
             _react2.default.createElement(
               'option',
-              { value: 'Mansion' },
+              { value: 'All' },
+              'All'
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: 'mansion' },
               'Mansion'
             ),
             _react2.default.createElement(
               'option',
-              { value: 'House' },
+              { value: 'house' },
               'House'
             ),
             _react2.default.createElement(
               'option',
-              { value: 'Apartment' },
+              { value: 'apartment' },
               'Apartment'
             ),
             _react2.default.createElement(
               'option',
-              { value: 'Condo' },
+              { value: 'condo' },
               'Condo'
             ),
             _react2.default.createElement(
               'option',
-              { value: 'Bando' },
+              { value: 'bando' },
               'Bando'
             )
           ),
           _react2.default.createElement(
+            'label',
+            { htmlFor: 'bedrooms' },
+            'Bedrooms'
+          ),
+          _react2.default.createElement(
             'select',
-            { name: 'number-of-bedrooms', className: 'filters number-of-bedrooms', onChange: this.props.change },
+            { name: 'bedrooms', className: 'filters number-of-bedrooms', onChange: this.props.change },
             _react2.default.createElement(
               'option',
               { value: '1' },
-              '1 BR'
+              '1+ BR'
             ),
             _react2.default.createElement(
               'option',
               { value: '2' },
-              '2 BR'
+              '2+ BR'
             ),
             _react2.default.createElement(
               'option',
               { value: '3' },
-              '3 BR'
+              '3+ BR'
             ),
             _react2.default.createElement(
               'option',
               { value: '4' },
-              '4 BR'
+              '4+ BR'
             ),
             _react2.default.createElement(
               'option',
               { value: '5' },
-              '5 BR'
+              '5+ BR'
             ),
             _react2.default.createElement(
               'option',
-              { value: '6+' },
+              { value: '6' },
               '6+ BR'
             )
           ),
           _react2.default.createElement(
+            'label',
+            { htmlFor: 'bathrooms' },
+            'Bathrooms'
+          ),
+          _react2.default.createElement(
             'select',
-            { name: 'number-of-bathrooms', className: 'filters number-of-bathrooms', onChange: this.props.change },
+            { name: 'bathrooms', className: 'filters number-of-bathrooms', onChange: this.props.change },
             _react2.default.createElement(
               'option',
               { value: '1' },
-              '1 BA'
+              '1+ BA'
             ),
             _react2.default.createElement(
               'option',
               { value: '2' },
-              '2 BA'
+              '2+ BA'
             ),
             _react2.default.createElement(
               'option',
               { value: '3' },
-              '3 BA'
+              '3+ BA'
             ),
             _react2.default.createElement(
               'option',
               { value: '4' },
-              '4 BA'
+              '4+ BA'
             ),
             _react2.default.createElement(
               'option',
               { value: '5' },
-              '5 BA'
+              '5+ BA'
             ),
             _react2.default.createElement(
               'option',
@@ -378,6 +408,10 @@ var Listings = function (_Component) {
     value: function loopListings() {
       var listingsData = this.props.listingsData;
 
+
+      if (listingsData === undefined || listingsData.length === 0) {
+        return "No Results";
+      }
 
       return listingsData.map(function (listing, index) {
         return _react2.default.createElement(
@@ -595,10 +629,10 @@ var listingsData = [{
   city: 'Brookline',
   state: 'MA',
   propertyType: 'bando',
-  bedrooms: 10,
-  bathrooms: 8,
+  bedrooms: 3,
+  bathrooms: 1,
   price: 8000000,
-  floorSpace: 3000,
+  floorSpace: 10000,
   extras: ['elevator', 'swimming pool', 'finished basement'],
   image: 'https://images.adsttc.com/media/images/53d8/5c86/c07a/8059/5e00/0267/large_jpg/PORTADA.jpg?1406688379'
 }, {
@@ -609,7 +643,7 @@ var listingsData = [{
   bedrooms: 10,
   bathrooms: 8,
   price: 4500000,
-  floorSpace: 3000,
+  floorSpace: 8000,
   extras: ['elevator', 'swimming pool', 'finished basement'],
   image: 'https://patch.com/img/cdn20/users/22926785/20190715/051807/styles/patch_image/public/processed_images/97f367dd52513a01fe128cfcafe01ba2l-m0o.jpg'
 }, {
@@ -620,7 +654,7 @@ var listingsData = [{
   bedrooms: 10,
   bathrooms: 8,
   price: 3250000,
-  floorSpace: 3000,
+  floorSpace: 6000,
   extras: ['elevator', 'swimming pool', 'finished basement'],
   image: 'https://i.pinimg.com/originals/c2/54/1c/c2541c4354d17b791411753af1a8b959.jpg'
 }, {
@@ -628,8 +662,8 @@ var listingsData = [{
   city: 'Amherst',
   state: 'MA',
   propertyType: 'mansion',
-  bedrooms: 10,
-  bathrooms: 8,
+  bedrooms: 2,
+  bathrooms: 3,
   price: 875000,
   floorSpace: 3000,
   extras: ['elevator', 'swimming pool', 'finished basement'],
@@ -639,10 +673,10 @@ var listingsData = [{
   city: 'Brookline',
   state: 'MA',
   propertyType: 'mansion',
-  bedrooms: 10,
-  bathrooms: 8,
+  bedrooms: 1,
+  bathrooms: 4,
   price: 6450000,
-  floorSpace: 3000,
+  floorSpace: 9000,
   extras: ['elevator', 'swimming pool', 'finished basement'],
   image: 'https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fkarenhua%2Ffiles%2F2017%2F02%2Fbrady-la2.jpg'
 }, {
@@ -650,10 +684,10 @@ var listingsData = [{
   city: 'Dorchester',
   state: 'MA',
   propertyType: 'mansion',
-  bedrooms: 10,
-  bathrooms: 8,
+  bedrooms: 9,
+  bathrooms: 9,
   price: 545000,
-  floorSpace: 3000,
+  floorSpace: 2000,
   extras: ['elevator', 'swimming pool', 'finished basement'],
   image: 'https://cdn.vox-cdn.com/uploads/chorus_image/image/64983743/Giselle_House_1.0.jpg'
 }, {
@@ -661,10 +695,10 @@ var listingsData = [{
   city: 'Brookline',
   state: 'MA',
   propertyType: 'mansion',
-  bedrooms: 10,
-  bathrooms: 8,
+  bedrooms: 11,
+  bathrooms: 2,
   price: 1000000,
-  floorSpace: 3000,
+  floorSpace: 12000,
   extras: ['elevator', 'swimming pool', 'finished basement'],
   image: 'https://i.pinimg.com/originals/66/2d/5a/662d5a7247e528b2e7b12788bc5a9cf7.jpg'
 }];
@@ -726,15 +760,21 @@ var App = function (_Component) {
     _this.state = {
       name: 'Gucci af',
       listingsData: _listingsData2.default,
+      city: 'All',
+      propertyType: 'All',
+      bedrooms: 1,
+      bathrooms: 1,
       min_floor_space: 0,
       max_floor_space: 150000,
       min_price: 0,
       max_price: 10000000,
       elevator: false,
       swimming_pool: false,
-      finished_basement: false
+      finished_basement: false,
+      filteredData: _listingsData2.default
     };
     _this.change = _this.change.bind(_this);
+    _this.filteredData = _this.filteredData.bind(_this);
     return _this;
   }
 
@@ -748,6 +788,32 @@ var App = function (_Component) {
 
       this.setState(_defineProperty({}, name, value), function () {
         console.log(_this2.state);
+        _this2.filteredData();
+      });
+    }
+  }, {
+    key: 'filteredData',
+    value: function filteredData() {
+      var _this3 = this;
+
+      var newData = this.state.listingsData.filter(function (listing) {
+        return listing.price >= _this3.state.min_price && listing.price <= _this3.state.max_price && listing.floorSpace >= _this3.state.min_floor_space && listing.floorSpace <= _this3.state.max_floor_space && listing.bedrooms >= _this3.state.bedrooms && listing.bathrooms >= _this3.state.bathrooms;
+      });
+
+      if (this.state.city != "All") {
+        newData = newData.filter(function (listing) {
+          return listing.city === _this3.state.city;
+        });
+      }
+
+      if (this.state.propertyType != "All") {
+        newData = newData.filter(function (listing) {
+          return listing.propertyType === _this3.state.propertyType;
+        });
+      }
+
+      this.setState({
+        filteredData: newData
       });
     }
   }, {
@@ -761,7 +827,7 @@ var App = function (_Component) {
           'section',
           { id: 'content-area' },
           _react2.default.createElement(_Filter2.default, { change: this.change, globalState: this.state }),
-          _react2.default.createElement(_Listings2.default, { listingsData: this.state.listingsData })
+          _react2.default.createElement(_Listings2.default, { listingsData: this.state.filteredData })
         )
       );
     }

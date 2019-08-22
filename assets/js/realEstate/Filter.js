@@ -13,34 +13,39 @@ class Filter extends Component {
       <section id="filter">
       <div className="inside">
         <h4>Filter</h4>
-
-        <select name="city/town" className="filters city/town" onChange={this.props.change}>
+        <label htmlFor="city">City</label>
+        <select name="city" className="filters city" onChange={this.props.change}>
+          <option value="All">All</option>
           <option value="Brookline">Brookline</option>
           <option value="Amherst">Amherst</option>
           <option value="Dorchester">Dorchester</option>
           <option value="Roslindale">Roslindale</option>
         </select>
-        <select name="property-type" className="filters property-type" onChange={this.props.change}>
-          <option value="Mansion">Mansion</option>
-          <option value="House">House</option>
-          <option value="Apartment">Apartment</option>
-          <option value="Condo">Condo</option>
-          <option value="Bando">Bando</option>
+        <label htmlFor="propertyType">Type of Property</label>
+        <select name="propertyType" className="filters property-type" onChange={this.props.change}>
+          <option value="All">All</option>
+          <option value="mansion">Mansion</option>
+          <option value="house">House</option>
+          <option value="apartment">Apartment</option>
+          <option value="condo">Condo</option>
+          <option value="bando">Bando</option>
         </select>
-        <select name="number-of-bedrooms" className="filters number-of-bedrooms" onChange={this.props.change}>
-          <option value="1">1 BR</option>
-          <option value="2">2 BR</option>
-          <option value="3">3 BR</option>
-          <option value="4">4 BR</option>
-          <option value="5">5 BR</option>
-          <option value="6+">6+ BR</option>
+        <label htmlFor="bedrooms">Bedrooms</label>
+        <select name="bedrooms" className="filters number-of-bedrooms" onChange={this.props.change}>
+          <option value="1">1+ BR</option>
+          <option value="2">2+ BR</option>
+          <option value="3">3+ BR</option>
+          <option value="4">4+ BR</option>
+          <option value="5">5+ BR</option>
+          <option value="6">6+ BR</option>
         </select>
-        <select name="number-of-bathrooms" className="filters number-of-bathrooms" onChange={this.props.change}>
-        <option value="1">1 BA</option>
-        <option value="2">2 BA</option>
-        <option value="3">3 BA</option>
-        <option value="4">4 BA</option>
-        <option value="5">5 BA</option>
+        <label htmlFor="bathrooms">Bathrooms</label>
+        <select name="bathrooms" className="filters number-of-bathrooms" onChange={this.props.change}>
+        <option value="1">1+ BA</option>
+        <option value="2">2+ BA</option>
+        <option value="3">3+ BA</option>
+        <option value="4">4+ BA</option>
+        <option value="5">5+ BA</option>
         <option value="6+">6+ BA</option>
         </select>
 

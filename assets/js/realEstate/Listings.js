@@ -13,6 +13,10 @@ class Listings extends Component {
 
     const { listingsData } = this.props
 
+    if(listingsData === undefined || listingsData.length === 0) {
+      return "No Results"
+    }
+
     return listingsData.map((listing, index) => {
       return (
         <div className="col-md-3" key={index}>
