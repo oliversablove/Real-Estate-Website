@@ -37,16 +37,18 @@ class Listings extends Component {
                     <div className="listing-details">
                       <div className="floor-space">
                         <i className="fa fa-square-o" aria-hidden="true"></i>
-                        <span>1000 ft&sup2;</span>
+                        <span>{listing.floorSpace} ft&sup2;</span>
                       </div>
-                      <div className="bedrooms">
-                        <i className="fa fa-bed" aria-hidden="true"></i>
-                        <span>{listing.bedrooms}</span>
+                      <div className="bd-ba-icons">
+                        <div className="bedrooms">
+                          <i className="fa fa-bed" aria-hidden="true"></i>
+                          <span>{listing.bedrooms}</span>
+                        </div>
+                        <div className="bathrooms">
+                          <i className="fa fa-bath" aria-hidden="true"></i>
+                          <span>{listing.bathrooms}</span>
+                        </div>
                       </div>
-                    </div>
-
-                    <div className="view-btn">
-                    View Listing
                     </div>
                   </div>
 
@@ -80,16 +82,18 @@ class Listings extends Component {
                     <div className="listing-details">
                       <div className="floor-space">
                         <i className="fa fa-square-o" aria-hidden="true"></i>
-                        <span>1000 ft&sup2;</span>
+                        <span>{listing.floorSpace} ft&sup2;</span>
                       </div>
-                      <div className="bedrooms">
-                        <i className="fa fa-bed" aria-hidden="true"></i>
-                        <span>{listing.bedrooms}</span>
+                      <div className="bd-ba-icons">
+                        <div className="bedrooms">
+                          <i className="fa fa-bed" aria-hidden="true"></i>
+                          <span>{listing.bedrooms}</span>
+                        </div>
+                        <div className="bathrooms">
+                          <i className="fa fa-bath" aria-hidden="true"></i>
+                          <span>{listing.bathrooms}</span>
+                        </div>
                       </div>
-                    </div>
-
-                    <div className="view-btn">
-                    View Listing
                     </div>
                   </div>
 

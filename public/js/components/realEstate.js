@@ -444,24 +444,34 @@ var Listings = function (_Component) {
                         _react2.default.createElement(
                           'span',
                           null,
-                          '1000 ft\xB2'
+                          listing.floorSpace,
+                          ' ft\xB2'
                         )
                       ),
                       _react2.default.createElement(
                         'div',
-                        { className: 'bedrooms' },
-                        _react2.default.createElement('i', { className: 'fa fa-bed', 'aria-hidden': 'true' }),
+                        { className: 'bd-ba-icons' },
                         _react2.default.createElement(
-                          'span',
-                          null,
-                          listing.bedrooms
+                          'div',
+                          { className: 'bedrooms' },
+                          _react2.default.createElement('i', { className: 'fa fa-bed', 'aria-hidden': 'true' }),
+                          _react2.default.createElement(
+                            'span',
+                            null,
+                            listing.bedrooms
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          { className: 'bathrooms' },
+                          _react2.default.createElement('i', { className: 'fa fa-bath', 'aria-hidden': 'true' }),
+                          _react2.default.createElement(
+                            'span',
+                            null,
+                            listing.bathrooms
+                          )
                         )
                       )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'view-btn' },
-                      'View Listing'
                     )
                   )
                 )
@@ -542,24 +552,34 @@ var Listings = function (_Component) {
                         _react2.default.createElement(
                           'span',
                           null,
-                          '1000 ft\xB2'
+                          listing.floorSpace,
+                          ' ft\xB2'
                         )
                       ),
                       _react2.default.createElement(
                         'div',
-                        { className: 'bedrooms' },
-                        _react2.default.createElement('i', { className: 'fa fa-bed', 'aria-hidden': 'true' }),
+                        { className: 'bd-ba-icons' },
                         _react2.default.createElement(
-                          'span',
-                          null,
-                          listing.bedrooms
+                          'div',
+                          { className: 'bedrooms' },
+                          _react2.default.createElement('i', { className: 'fa fa-bed', 'aria-hidden': 'true' }),
+                          _react2.default.createElement(
+                            'span',
+                            null,
+                            listing.bedrooms
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          { className: 'bathrooms' },
+                          _react2.default.createElement('i', { className: 'fa fa-bath', 'aria-hidden': 'true' }),
+                          _react2.default.createElement(
+                            'span',
+                            null,
+                            listing.bathrooms
+                          )
                         )
                       )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'view-btn' },
-                      'View Listing'
                     )
                   )
                 )
@@ -1012,8 +1032,6 @@ var App = function (_Component) {
 
       this.setState({
         filteredData: newData
-      }, function () {
-        console.log(_this3.state.elevator);
       });
     }
   }, {

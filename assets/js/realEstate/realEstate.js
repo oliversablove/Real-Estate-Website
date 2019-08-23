@@ -120,8 +120,6 @@ class App extends Component {
 
     this.setState({
       filteredData: newData
-    }, () => {
-      console.log(this.state.elevator)
     })
   }
 
