@@ -107,17 +107,18 @@ class Listings extends Component {
     })
   }
 
+
   render () {
     return (
       <section id="listings">
 
-        <section className="search-area">
-          <input type="text" name="search" onChange={this.props.change}/>
-          <i className="fa fa-search" aria-hidden="true"></i>
-        </section>
+      <section className="search-area">
+        <input type="text" name="search" onChange={this.props.change}/>
+        <i className="fa fa-search" aria-hidden="true"></i>
+      </section>
 
         <section className="sortby-area">
-          <div className="results">300 results found</div>
+          <div className="results">{this.props.globalState.filteredData.length} results found</div>
           <div className="sort-options">
             <select name="sortby" className="sortby" onChange={this.props.change}>
               <option value="price-dsc">Lowest Price</option>
