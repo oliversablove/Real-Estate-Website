@@ -309,11 +309,6 @@ var Header = function (_Component) {
           _react2.default.createElement(
             'a',
             { href: '#' },
-            'Create Ads'
-          ),
-          _react2.default.createElement(
-            'a',
-            { href: '#' },
             'About Us'
           ),
           _react2.default.createElement(
